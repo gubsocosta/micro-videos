@@ -1,4 +1,4 @@
-import { v4 as uuidV4 } from 'uuid';
+import { UniqueEntityId } from '../../../seed-work/domain/unique-entity-id';
 
 export type CategoryProperties = {
   name: string;
@@ -7,12 +7,12 @@ export type CategoryProperties = {
   createdAt?: Date;
 };
 export class Category {
-  public readonly id: string;
-  
-  constructor(public readonly props: CategoryProperties, id?: string) {
-    this.id = id || uuidV4();
+  public readonly id: UniqueEntityId;
+
+  constructor(public readonly props: CategoryProperties, id?: UniqueEntityId) {
+    this.id = id || new UniqueEntityId();
     this.description = this.props.description;
-    this.props.isActive = this.props.isActive ?? true;
+    this.isActive = this.props.isActive ?? true;
     this.props.createdAt = this.props.createdAt ?? new Date();
   }
 
@@ -38,5 +38,9 @@ export class Category {
 
   get createdAt() {
     return this.props.createdAt;
+  }
+
+  private set createdAt(date: Date) {
+    this.props.createdAt = date ?? new Date();
   }
 }
