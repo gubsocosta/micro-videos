@@ -1,0 +1,9 @@
+@startuml Category UseCases
+
+:Admin: -> (Criar categoria)
+:Admin: -> (Atualizar categoria)
+:Admin: -> (Excluit categoria)
+:Admin: -> (Consultar uma categoria)
+:Admin: -> (Consultar categorias)
+
+@enduml
