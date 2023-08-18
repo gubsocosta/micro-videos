@@ -1,7 +1,6 @@
 import { omit } from 'lodash';
-import { validate as uuidValidate } from 'uuid';
+import { UniqueEntityId } from '../../../@seedwork/domain/value-objects/unique-entity-id';
 import { Category, CategoryProperties } from './category';
-import { UniqueEntityId } from '../../../seed-work/domain/unique-entity-id';
 
 describe('Category Unit Tests', () => {
   it('category constructor', () => {
